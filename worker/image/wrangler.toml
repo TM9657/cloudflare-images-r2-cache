@@ -1,0 +1,11 @@
+name = "image-endpoint"
+main = "src/index.ts"
+compatibility_date = "2023-05-02"
+# node_compat = true
+send_metrics = true
+logpush = true
+
+[[r2_buckets]]
+binding = 'IMAGES_CACHE' # <~ valid JavaScript variable name
+bucket_name = 'images-cache'
+
