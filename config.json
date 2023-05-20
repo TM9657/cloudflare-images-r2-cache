@@ -1,3 +1,7 @@
 {
-  "cors": [""]
+    "cors": [
+        ""
+    ],
+    "bucketDomain": "",
+    "accountHash": ""
 }

@@ -36,4 +36,8 @@ yarn-error.log*
 # vercel
 .vercel
 
+# manual adjustment
+*.js
+*.d.ts
+*.ts.map
 .env

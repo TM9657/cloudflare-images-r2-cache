@@ -42,4 +42,8 @@ export class CorsResponse {
         });
         return response;
     }
+
+    redirect(url: string, type: 301 | 302 = 301): Response {
+        return Response.redirect(url, type)
+    }
 }

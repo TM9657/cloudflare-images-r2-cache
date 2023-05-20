@@ -11,6 +11,17 @@
 Using Cloudflare Images + R2 Storage to add a caching layer for variants **(looking at you 1$ / 100k deliveries)**.
 The first time an image is requested is redirected to images, after that the image is stored in r2. Future requests are redirected to R2.
 
+## 📦️ Installation
+```
+0. clone the repo
+1. pnpm install
+2. pnpm run initialize
+3. pnpm run build
+```
+
+## 📦️ Notes
+- Turborepo is absolute overkill for this project
+
 **Provided by TM9657 GmbH with ❤️**
 ### Check out some of our products:
 - [Kwirk.io](https://kwirk.io?ref=github) (Text Editor with AI integration, privacy focus and offline support)

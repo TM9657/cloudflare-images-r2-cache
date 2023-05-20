@@ -13,5 +13,6 @@
     "deploy": "wrangler publish"
   },
   "dependencies": {
+    "util": "workspace:*"
   }
 }

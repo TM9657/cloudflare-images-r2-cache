@@ -1,0 +1,5 @@
+{
+  "extends": "@tm9657/tsconfig/node18.json",
+  "include": ["."],
+  "exclude": ["dist", "build", "node_modules"]
+}
