@@ -36,4 +36,4 @@ A **Custom URL** based on your public bucket URL is used for the images endpoint
 ---
 #### **Provided by TM9657 GmbH with ❤️**
 ### Check out some of our products:
-- [Kwirk.io](https://kwirk.io?ref=github) (Text Editor with AI integration, privacy focus and offline support)
+- [Kwirk.io](https://kwirk.io?ref=github) (**Text Editor** with **AI integration**, privacy focus and offline support) [Free]
