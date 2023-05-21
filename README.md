@@ -8,7 +8,7 @@
 </p>
 
 # 📸️ 📦️ Cloudflare Images Buffer
-Using Cloudflare Images + R2 Storage to add a caching layer for variants **(looking at you 1$ / 100k deliveries)**.
+Using Cloudflare **Images** + **R2 Storage** to add a caching layer for variants **(looking at you 1$ / 100k deliveries)**.
 The first time an image is requested is redirected to images, after that the image is stored in r2. Future requests are redirected to R2.
 
 ## 📦️ Installation
@@ -20,7 +20,7 @@ The first time an image is requested is redirected to images, after that the ima
 ```
 
 ## 📦️ Notes
-- Turborepo is absolute overkill for this project
+- Todo: Add delete endpoint with a secret.
 
 **Provided by TM9657 GmbH with ❤️**
 ### Check out some of our products:
