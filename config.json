@@ -3,5 +3,7 @@
         ""
     ],
     "bucketDomain": "",
-    "accountHash": ""
+    "accountHash": "",
+    "secret": "",
+    "maxKB": 400
 }

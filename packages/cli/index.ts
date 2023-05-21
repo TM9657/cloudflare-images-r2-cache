@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import readline from "readline"
 import {exec} from "child_process"
+import crypto from "crypto"
 const rl = readline.createInterface({
     input: process.stdin,
     output: process.stdout
@@ -9,9 +10,12 @@ const rl = readline.createInterface({
 const prompt = (question: string) => new Promise<string>(resolve => rl.question(question, resolve))
 
 async function main(){
+    const secret = crypto.randomBytes(64).toString("hex")
     console.log("👋 Welcome to Cache Initialization!");
     const accountHash = await prompt("What is your Account-Hash (found at your Images tab in the console): ")
     const bucketDomain = await prompt("What is the public bucket URI (e.g. cdn.example.com)[You can setup the custom domain in cloudflare later]: ")
+    const maxKB = await prompt("What is the maximum size of an image in KB, that you want to store? (default: 400): ")
+    const maxKBParsed = parseInt(maxKB === "" ? "400" : maxKB)
     const bucketName = await prompt("What is your bucket name? (default: images-cache): ")
     const parsedBucketName = bucketName === "" ? "images-cache" : bucketName
     const createBucket = (await prompt("Would you like to create the bucket now? (y/n): ")).toLowerCase()
@@ -24,6 +28,8 @@ async function main(){
         const configJSON = JSON.parse(config)
         configJSON.accountHash = accountHash;
         configJSON.bucketDomain = bucketDomain;
+        configJSON.secret = secret;
+        configJSON.maxKB = maxKBParsed;
         fs.writeFileSync(path.join(__dirname, "..", "..", "config.json"), JSON.stringify(configJSON, null, 4));
         console.log("✅ Successfully wrote to config.json")
     }catch(e){
@@ -50,6 +56,7 @@ async function main(){
     if(createBucket !== "y" && createBucket !== "yes") {
         console.log("⏭️ Skipping bucket creation...")
         console.log("❤️ DONE :) Please leave a star in our github repo if you like the project!! ❤️")
+        console.log("🙊️ Your secret is: " + secret);
         return;
     }
 
@@ -64,6 +71,7 @@ async function main(){
             }
             console.log("✅ Successfully created bucket!")
             console.log("❤️ DONE :) Please leave a star in our github repo if you like the project!! ❤️")
+            console.log("🙊️ Your secret is: " + secret);
             resolve(null)
             return;
         })

@@ -19,9 +19,21 @@ The first time an image is requested is redirected to images, after that the ima
 3. pnpm run build
 ```
 
-## 📦️ Notes
-- Todo: Add delete endpoint with a secret.
+## ❤️ Who is this for?
+The default pricing is absolute great for bigger images (over 100kb) that are not delivered often. However for smaller images (profile pictures) that are requested frequently, the delivery fee can become costly.
 
-**Provided by TM9657 GmbH with ❤️**
+This project makes it easier to handle those cases. If you do not have lots of smaller often requested images, you will pay extra r2 and worker fees with this approach.
+
+## 🍎 Notes
+> You can access your images by calling the provided worker API like that: `https://endpoint?id=<id>&variant=<variant>` (**GET** Request)
+> 
+> To delete a cached image variants just call the endpoint with a **DELETE** request (you can ommit the variant parameter) and provide the header "authorization" with your secret. (generated on initialization)
+
+Images above your limit size will be stored as 1 byte. The endpoint will lookup the size with a head request to R2 (class B action) and determine if the request will be redirected to the endpoint or the cdn.
+
+A **Custom URL** based on your public bucket URL is used for the images endpoint.
+
+---
+#### **Provided by TM9657 GmbH with ❤️**
 ### Check out some of our products:
 - [Kwirk.io](https://kwirk.io?ref=github) (Text Editor with AI integration, privacy focus and offline support)

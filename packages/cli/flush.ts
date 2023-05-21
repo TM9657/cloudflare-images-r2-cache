@@ -7,6 +7,8 @@ async function main(){
         const configJSON = JSON.parse(config)
         configJSON.accountHash = "";
         configJSON.bucketDomain = "";
+        configJSON.secret = "";
+        configJSON.maxKB = 400;
         fs.writeFileSync(path.join(__dirname, "..", "..", "config.json"), JSON.stringify(configJSON, null, 4));
         console.log("Successfully wrote to config.json")
     }catch(e){
